@@ -1,0 +1,127 @@
+/* Center and style the calendar container */
+.calendar-container {
+    max-width: 780px; /* Increased width by 30% */
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Calendar layout */
+.calendar {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 1rem;
+}
+
+/* Calendar header */
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-left: 2px solid #3c91e6;
+    border-right: 2px solid #3c91e6;
+    border-top: 2px solid #3c91e6;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+    /* Specific style for the year header */
+    .calendar-header.year-header {
+        border-top-left-radius: 8px; /* Round the top-left corner */
+        border-top-right-radius: 8px; /* Round the top-right corner */
+    }
+
+.arrow-btn {
+    background-color: transparent;
+    color: #3c91e6;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+    .arrow-btn:hover {
+        color: #2b73b6;
+    }
+
+.year-outline,
+.month-outline {
+    padding: 0.5rem;
+    border: 2px solid #3c91e6;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+    margin: 0 0.5rem;
+}
+
+/* Calendar grid layout */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    border: 2px solid #3c91e6;
+    padding: 0.5rem;
+    background-color: #1e232a; /* Darker background */
+    border-bottom-left-radius: 8px; /* Rounded bottom-left corner */
+    border-bottom-right-radius: 8px; /* Rounded bottom-right corner */
+}
+
+/* Day styles */
+.calendar-day {
+    padding: 0.75rem;
+    text-align: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    .calendar-day:hover {
+        background-color: #444;
+    }
+
+.other-month {
+    background-color: #2b3036;
+    color: #777;
+}
+
+.current-day {
+    background-color: #3c91e6;
+    color: white;
+    border-radius: 0.5rem;
+}
+
+.selected-day {
+    background-color: #f7b32b;
+    color: #13171f; /* Change text to a dark contrasting color */
+    border-radius: 0.5rem;
+}
+
+/* Days with notes: Change text color instead of background */
+.has-note {
+    color: #f7b32b; /* Change text color to indicate a note */
+}
+
+.has-note.selected-day {
+    color: #13171f; /* Override note text color for selected day */
+}
+
+/* Note section styling */
+textarea {
+    width: 100%;
+    resize: none;
+    margin-top: 1rem; /* Increased margin to create more space */
+}
+
+/* Space between calendar and note section */
+.calendar + div {
+    margin-top: 1.5rem; /* Adds spacing between calendar and note section */
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    margin-top: 1rem;
+    height: 25rem; /* Adjusted height to triple the original size */
+}

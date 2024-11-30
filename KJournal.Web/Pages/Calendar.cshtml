@@ -1,0 +1,35 @@
+﻿@page
+@model KJournal.Web.Pages.CalendarModel
+@{
+}
+
+
+<h1>Calendar</h1>
+
+<div class="calendar-container">
+    <!-- Calendar Header -->
+    <div class="calendar-header year-header">
+        <div id="prevYear" class="arrow-btn"><</div>
+        <span id="year">2024</span>
+        <div id="nextYear" class="arrow-btn">></div>
+    </div>
+    <div class="calendar-header">
+        <div id="prevMonth" class="arrow-btn"><</div>
+        <span id="month">January</span>
+        <div id="nextMonth" class="arrow-btn">></div>
+    </div>
+
+    <!-- Calendar Grid -->
+    <div class="calendar-grid" id="calendarGrid"></div>
+
+    <!-- Note Section -->
+    <div>
+        <textarea id="noteText" placeholder="Add a note for the selected day..."></textarea>
+        <button id="saveNote">Save Note</button>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/calendar.js"></script>
+}

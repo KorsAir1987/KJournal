@@ -1,0 +1,49 @@
+﻿@page
+@model KJournal.Web.Pages.JournalEntries.CreateModel
+
+        @{
+        ViewData["Title"] = "Create";
+        }
+        
+        <h1>Create</h1>
+        
+    <h4>JournalEntry</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="JournalEntry.Date" class="control-label"></label>
+                <input asp-for="JournalEntry.Date" class="form-control" />
+                <span asp-validation-for="JournalEntry.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JournalEntry.Type" class="control-label"></label>
+                <select asp-for="JournalEntry.Type" class="form-control"></select>
+                <span asp-validation-for="JournalEntry.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JournalEntry.Username" class="control-label"></label>
+                <input asp-for="JournalEntry.Username" class="form-control" />
+                <span asp-validation-for="JournalEntry.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JournalEntry.Text" class="control-label"></label>
+                <input asp-for="JournalEntry.Text" class="form-control" />
+                <span asp-validation-for="JournalEntry.Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

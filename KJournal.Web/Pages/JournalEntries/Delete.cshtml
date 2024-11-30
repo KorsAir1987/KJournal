@@ -1,0 +1,46 @@
+﻿@page
+@model KJournal.Web.Pages.JournalEntries.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>JournalEntry</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.JournalEntry.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JournalEntry.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.JournalEntry.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JournalEntry.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.JournalEntry.Username)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JournalEntry.Username)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.JournalEntry.Text)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.JournalEntry.Text)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="JournalEntry.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
