@@ -12,13 +12,11 @@
     <header class="container">
         <nav>
             <ul>
-                <li><strong><a asp-area="" asp-page="/Index">KJournal</a></strong></li>
-            </ul>
-            <ul>
                 <li><a asp-area="" asp-page="/Index">Home</a></li>
                 <li><a asp-area="" asp-page="/Privacy">Privacy</a></li>
                 <li><a asp-area="" asp-page="/Calendar">Calendar</a></li>
             </ul>
+            <partial name="_LoginPartial" />
         </nav>
     </header>
     <main class="container">

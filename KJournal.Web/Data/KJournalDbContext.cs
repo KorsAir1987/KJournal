@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using KJournal.Web.Models;
 
 namespace KJournal.Web.Data
 {
-    public class KJournalDbContext : DbContext
+    public class KJournalDbContext : IdentityDbContext
     {
         public KJournalDbContext (DbContextOptions<KJournalDbContext> options)
             : base(options)

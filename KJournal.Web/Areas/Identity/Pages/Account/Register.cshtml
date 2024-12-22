@@ -1,0 +1,36 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - KJournal.Web</title>
+    <link rel="stylesheet" href="~/lib/picocss/pico.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/KJournal.Web.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="container login">
+        <h1>@ViewData["Title"]</h1>
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <h2>Create a new account.</h2>
+            <hr />
+            <!-- Validation Summary -->
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+            <input asp-for="Input.Email" id="Input_Email" type="email" class="input" placeholder="Email" aria-label="Email" required />
+            <small><span asp-validation-for="Input.Email" class="text-danger"></span></small>
+            <input asp-for="Input.Password" id="Input_Password" type="password" class="input" placeholder="Password" aria-label="Password" required>
+            <small><span asp-validation-for="Input.Password" class="text-danger"></span></small>
+            <input asp-for="Input.ConfirmPassword" id="Input_ConfirmPassword" type="password" class="input" placeholder="Confirm Password" aria-label="ConfirmPassword" required>
+            <small><span asp-validation-for="Input.Password" class="text-danger"></span></small>
+            <button id="registerSubmit" type="submit">Register</button>
+        </form>
+    </div>
+
+</body>

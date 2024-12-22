@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using KJournal.Web.Data;
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<KJournalDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("KJournalDbContext") ?? throw new InvalidOperationException("Connection string 'KJournalDbContext' not found.")));
+
+builder.Services
+    .AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<KJournalDbContext>();
 
 var app = builder.Build();
 
@@ -22,7 +27,7 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthorization();  
 
 app.MapStaticAssets();
 app.MapRazorPages()
