@@ -90,13 +90,45 @@ function changeYear(offset) {
 
 saveNote.addEventListener('click', () => {
     const note = noteText.value.trim();
+    const dateKey = selectedDate;
+
     if (note) {
-        notes[selectedDate.toDateString()] = note;
+        notes[dateKey] = note;
     } else {
-        delete notes[selectedDate.toDateString()];
+        delete notes[dateKey];
     }
-    renderCalendar();
+
+    // Call the function to save the note
+    saveNoteToServer(dateKey, note)
+        .then(data => {
+            console.log('Note saved successfully:', data);
+            renderCalendar(); // Update the calendar after saving the note
+        })
+        .catch(error => {
+            console.error('Error saving note:', error);
+        });
 });
+
+function saveNoteToServer(date, note) {
+    const postData = {
+        date: date.toISOString(),
+        note: note || null, // Send `null` if note is deleted
+    };
+
+    return fetch('/Calendar/SaveNote', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData),
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to save the note');
+            }
+            return response.json();
+        });
+}
 
 prevMonth.addEventListener('click', () => changeMonth(-1));
 nextMonth.addEventListener('click', () => changeMonth(1));
